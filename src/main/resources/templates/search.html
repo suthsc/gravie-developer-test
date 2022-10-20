@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta charset="UTF-8">
+    <title>Search Results</title>
+    <meta name="description" content=""/>
+    <meta name="viewport" content="width=device-width"/>
+    <base href="/" th:href="@{/}"/>
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css"
+          th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+    <script type="text/javascript" src="/webjars/jquery/jquery.min.js"
+            th:src="@{/webjars/jquery/jquery.min.js}"></script>
+    <script type="text/javascript" src="/webjars/js-cookie/js.cookie.js"
+            th:src="@{/webjars/js-cookie/js.cookie.js}"></script>
+    <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"
+            th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+    <script type="text/javascript" src="/script/user-auth.js" th:src="@{/script/user-auth.js}"></script>
+    <link href="/css/primary.css" th:href="@{/css/primary.css}" rel="stylesheet"/>
+</head>
+<body>
+<header th:insert="index :: header"></header>
+<div th:replace="index :: catalog"></div>
+</body>
+</html>

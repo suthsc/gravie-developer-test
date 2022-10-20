@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta charset="UTF-8">
+    <title>Game Rentals</title>
+    <meta name="description" content=""/>
+    <meta name="viewport" content="width=device-width"/>
+    <base href="/" th:href="@{/}"/>
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css"
+          th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+    <script type="text/javascript" src="/webjars/jquery/jquery.min.js"
+            th:src="@{/webjars/jquery/jquery.min.js}"></script>
+    <script type="text/javascript" src="/webjars/js-cookie/js.cookie.js"
+            th:src="@{/webjars/js-cookie/js.cookie.js}"></script>
+    <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"
+            th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+    <script type="text/javascript" src="/script/user-auth.js" th:src="@{/script/user-auth.js}"></script>
+    <link href="/css/primary.css" th:href="@{/css/primary.css}" rel="stylesheet"/>
+</head>
+<body>
+<div th:fragment="header" id="title-bar">
+    <div id="left-nav">
+        <img src="/icons/icon.png" th:src="@{/icons/icon.png}"/>
+    </div>
+    <div id="search">
+        <form action="/search" th:action="@{/search}" method="get">
+            <img src="/icons/search.svg" th:src="@{/icons/search.svg}" alt="Search game inventory"/>
+            <input name="query" type="search" placeholder="Search available games"/>
+        </form>
+    </div>
+    <div id="right-nav">
+        <div class="unauthenticated">
+            <div class="authContainer">
+                <a title="Authenticate with GitHub" href="/oauth2/authorization/github"
+                   th:href="@{/oauth2/authorization/github}">
+                    <img src="/icons/github.svg" th:src="@{/icons/github.svg}" alt="GitHub login" height="36"
+                         width="36"/>
+                </a>
+            </div>
+            <div class="authContainer">
+                <a title="Authenticate with Google" href="/oauth2/authorization/google"
+                   th:href="@{/oauth2/authorization/google}">
+                    <img src="/icons/google.svg" th:src="@{/icons/google.svg}" alt="Google login" height="36"
+                         width="36"/>
+                </a>
+            </div>
+        </div>
+        <div class="authenticated" style="display: none">
+            Logged in as <span id="user"></span>
+            <div>
+                <button onClick="logout()" class="btn btn-primary">Logout</button>
+            </div>
+        </div>
+    </div>
+</div>
+<br/>
+<div th:fragment="catalog" id="catalog">
+    <div class="product" th:each="product:${products}">
+        <strong><p th:text="${product.name}"></p></strong>
+        <a th:href="@{'/view/'+${product.guid()} + '/'}">
+            <img th:src="${product.image}" class="thumbnail"/>
+        </a>
+        <div class="rental">
+            <a th:title="'Rent ' + ${product.name}" th:href="@{'/rent/' + ${product.guid} + '/'}">
+                <img src="/icons/plus-square.svg" th:src="@{/icons/plus-square.svg}"/>
+            </a>
+        </div>
+        <p class="description" th:text="${product.deck}"></p>
+        <p class="clear"></p>
+    </div>
+</div>
+
+</body>
+</html>

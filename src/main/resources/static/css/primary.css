@@ -1,0 +1,73 @@
+div#title-bar {
+    background: lightgray;
+    vertical-align: center;
+    height: 120px;
+}
+
+div#left-nav {
+    float: left;
+}
+
+div#search {
+    display: inline-block;
+    padding: 24px 16px;
+}
+
+div#search img {
+    margin-left: 20px;
+    margin-top: 12px;
+    height: 40px;
+    vertical-align: bottom;
+}
+
+div#search input {
+    height: 40px;
+    font-size: 16px;
+    min-width: 400px;
+}
+
+div#right-nav {
+    float: right;
+    padding: 30px 24px;
+}
+
+div#right-nav div.authContainer {
+    float: right;
+}
+
+div#right-nav a {
+    display: inline-block;
+    margin: 6px 6px;
+}
+
+div#right-nav a img {
+    background: white;
+    border-radius: 6px;
+    padding: 6px 6px;
+    border: 2px black;
+}
+
+div.product {
+    padding-left: 120px;
+    min-height: fit-content;
+}
+
+div.product .description {
+    padding: 6px 12px;
+    font-size: 16px;
+    max-width: 800px;
+}
+
+div.product .thumbnail {
+    float: left;
+    margin: 10px 10px;
+}
+
+div.product div.rental {
+    float: left;
+    margin: 10px 10px;
+}
+
+.clear {
+    clear: both;
+}
